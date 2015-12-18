@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<iframe src="/fips/<%= @fips_tz.id%>" width="700" height="700"></iframe>
+<hr>
+<%= link_to 'Edit', edit_fips_tz_path(@fips_tz) %> || <%= link_to 'fipsURL', @fips_tz.url_string_fips %>
+<%= link_to 'Back', fips_tzs_path %>
+<br>
+<%= link_to 'Update TZ From FIPS', "/update_tz/#{@fips_tz.id}" %>

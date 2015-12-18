@@ -1,0 +1,29 @@
+<%= form_for(@fips_tz) do |f| %>
+  <% if @fips_tz.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fips_tz.errors.count, "error") %> prohibited this fips_tz from being saved:</h2>
+
+      <ul>
+      <% @fips_tz.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tz_n %><br>
+    <%= f.number_field :tz_n %>
+  </div>
+  <div class="field">
+    <%= f.label :url_string_fips %><br>
+    <%= f.text_field :url_string_fips %>
+  </div>
+  <div class="field">
+    <%= f.label :doc %><br>
+    <%= f.text_area :doc, cols: 100, rows: 100%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

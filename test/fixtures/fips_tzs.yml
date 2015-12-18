@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tz_n: 1
+  url_string_fips: MyString
+  doc: MyString
+
+two:
+  tz_n: 1
+  url_string_fips: MyString
+  doc: MyString

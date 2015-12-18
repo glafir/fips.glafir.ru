@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  proxy_address: MyString
+  proxy_status: 1
+  proxy_timeout: 1.5
+
+two:
+  proxy_address: MyString
+  proxy_status: 1
+  proxy_timeout: 1.5

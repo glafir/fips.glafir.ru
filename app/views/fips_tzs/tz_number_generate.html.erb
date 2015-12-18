@@ -1,0 +1,15 @@
+Generator  TZ
+<%= form_tag do%>
+  <div class="field">
+    <%= label_tag "tz_start" %><br>
+    <%= number_field_tag :tz_start %>
+  </div>
+  <div class="field">
+    <%= label_tag "tz_end" %><br>
+    <%= number_field_tag :tz_end %>
+  </div>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<%end%>
+
