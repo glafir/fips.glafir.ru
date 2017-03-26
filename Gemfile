@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.6'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -75,3 +75,16 @@ gem "haml"
 gem "httpclient"
 gem "net-ping"
 gem "curb"
+gem 'kaminari-bootstrap'
+gem 'bootstrap-sass'
+gem 'bootstrap-sass-extras'
+gem "bootstrap_flash_messages"
+gem 'bootstrap_form'
+gem 'clockpicker-rails'
+gem 'rails_bootstrap_navbar'
+gem 'bootswatch-rails'
+gem 'bootstrap-select-rails'
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+
+gem 'get_process_mem'
+gem 'benchmark-ips'

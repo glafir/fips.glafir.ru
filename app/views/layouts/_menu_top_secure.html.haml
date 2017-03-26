@@ -1,0 +1,15 @@
+= navbar container: false, fixed: :top, responsive: true do
+  = navbar_header  brand: "Glafir`s Fips Information Centre", brand_link: root_path
+  = navbar_collapse do
+    = navbar_group align: 'left' do
+      - if user_signed_in?
+        = navbar_dropdown "Товарные знаки:" do
+          = navbar_item "Все товарники:", fips_tzs_path
+    = navbar_group align: 'right', class: 'right-userpanel', id: 'menu' do
+      - if user_signed_in?
+        = navbar_dropdown "твой профиль: #{current_user.username}" do
+          %li= link_to "My profile", current_user, class: "btn active"
+          %li= link_to 'Edir my profile', edit_user_registration_path, class:"btn active"
+          %li= link_to "Users", users_path, class: "btn active"
+          = navbar_dropdown_divider
+          %li= link_to 'Sign Out', destroy_user_session_path, :method => :delete, class: "btn active" if user_signed_in?

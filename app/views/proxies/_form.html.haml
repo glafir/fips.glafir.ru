@@ -1,0 +1,27 @@
+= form_for(@proxy) do |f|
+  - if @proxy.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@proxy.errors.count, "error")
+        prohibited this proxy from being saved:
+      %ul
+        - @proxy.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :proxy_address
+    %br/
+    = f.text_field :proxy_address
+  .field
+    = f.label :proxy_port
+    %br/
+    = f.text_field :proxy_port
+  .field
+    = f.label :proxy_status
+    %br/
+    = f.number_field :proxy_status
+  .field
+    = f.label :proxy_timeout
+    %br/
+    = f.text_field :proxy_timeout
+  .actions
+    = f.submit

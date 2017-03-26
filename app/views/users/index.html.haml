@@ -1,0 +1,13 @@
+%h3 Users
+.column
+  %table.table
+    %thead
+      %tr
+        %th User Email
+        %th Created At
+        %th Last LogIn At
+        %th
+    %tbody
+      - @users.each do |user|
+        %tr
+          = render user

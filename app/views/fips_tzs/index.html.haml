@@ -1,0 +1,35 @@
+= form_tag fips_tzs_path, :class => 'form form-horizontal fips_tzs', validate: true, :method => 'get', :id => "fips_tzs_search" do
+  .form-group
+    = label_tag 'col-lg-3 col-md-3 col-sm-6 col-xs-6', "Ключевые слова:", class: 'col-lg-3 col-md-3 col-sm-6 col-xs-6'
+    .controls.col-lg-3.col-md-3.col-sm-6.col-xs-6
+      = text_field_tag :search, params[:search], class: 'form-control'
+  .form-group
+    = label_tag 'col-lg-3 col-md-3 col-sm-6 col-xs-6', "Номер товарного знака", class: 'col-lg-3 col-md-3 col-sm-6 col-xs-6'
+    .controls.col-lg-3.col-md-3.col-sm-6.col-xs-6
+      = number_field_tag :search_tzn, params[:search_tzn], class: 'form-control'
+  .form-group
+    = label_tag 'col-lg-3 col-md-3 col-sm-6 col-xs-6', "Дата окончания срока действия", class: 'col-lg-3 col-md-3 col-sm-6 col-xs-6'
+    .controls.col-lg-3.col-md-3.col-sm-6.col-xs-6
+      = text_field_tag :search_datefinish, params[:search_datefinish], size: 8, class: 'form-control datepicker', 'data-provide' => 'datepicker'
+  .form-group
+    .controls.col-lg-3.col-md-3.col-sm-6.col-xs-6
+      = submit_tag "Search", :name => nil, class: "btn btn-primary"
+  #fips_tzs.col-lg-12.col-md-12.col-sm-12.col-xs-12= render 'fips_tzs'
+:javascript
+  $('.datepicker').datepicker({
+    format: "yyyy-mm-dd",
+    weekStart: 1,
+    todayBtn: 'linked',
+    clearBtn: true,
+    language: "ru",
+    calendarWeeks: true,
+    autoclose: true,
+    todayHighlight: true,
+    beforeShowYear: function (date){
+                  if (date.getFullYear() < #{Time.now.year}) {
+                    return false;
+                  }
+                },
+    toggleActive: true,
+    defaultViewDate: { year: #{Time.now.year}, month: #{Time.now.month}, day: #{Time.now.day} }
+  });

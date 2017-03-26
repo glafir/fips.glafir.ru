@@ -1,0 +1,5 @@
+%h1 Home#index
+= form_tag fips_tzs_path, :method => 'get', :id => "fips_tzs_search" do
+  %p
+    = text_field_tag :search, params[:search]
+    = submit_tag "Search", :name => nil

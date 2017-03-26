@@ -1,0 +1,14 @@
+%h3
+  User (#{@user.email})
+%p
+  %b Email:
+  = @user.email
+%p
+  %b Текущий адрес:
+  = @user.current_sign_in_ip
+%p
+  %b Адрес предыдущего захода:
+  = @user.last_sign_in_ip
+%p
+  %b Время предыдущего захода:
+  = @user.last_sign_in_at

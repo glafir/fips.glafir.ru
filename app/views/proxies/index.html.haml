@@ -1,0 +1,23 @@
+%h1 Listing proxies
+%table
+  %thead
+    %tr
+      %th Proxy Address
+      %th Proxy Port
+      %th Proxy Status
+      %th Proxy Timeout
+      %th
+      %th
+      %th
+  %tbody
+    - @proxies.each do |proxy|
+      %tr
+        %td= proxy.proxy_address
+        %td= proxy.proxy_port
+        %td= proxy.proxy_status
+        %td= proxy.proxy_timeout
+        %td= link_to 'Show', proxy
+        %td= link_to 'Edit', edit_proxy_path(proxy)
+        %td= link_to 'Destroy', proxy, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Proxy', new_proxy_path

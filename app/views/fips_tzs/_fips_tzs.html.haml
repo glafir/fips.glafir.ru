@@ -1,0 +1,21 @@
+%h1 Listing fips_tzs
+= render "paginate_top"
+%table.table.table-striped.table-hover.table-condensed
+  %thead
+    %tr
+      %th Tz n
+      %th Url string fips
+      %th Noko
+      %th
+      %th
+      %th
+  %tbody
+    - @fips_tzs.each do |fips_tz|
+      %tr
+        %td= fips_tz.tz_n
+        %td= link_to "Link From FIPS", fips_tz.url_string_fips, target: '_blank', class: "btn btn-primary"
+        %td= link_to 'Show', fips_tz, target: '_blank', class: "btn btn-default"
+        %td= link_to 'Noko', "/noko/#{fips_tz.id}", class: "btn btn-default"
+        %td= link_to 'Edit', edit_fips_tz_path(fips_tz), class: "btn btn-primary"
+        %td
+= render "paginate_bottom"

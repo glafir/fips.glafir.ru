@@ -1,0 +1,16 @@
+/*
+ *= require_self
+ *= require bootstrap-datepicker3
+ *= require rails_bootstrap_forms
+ *= require jquery-ui/autocomplete
+ *= require bootstrap/clockpicker
+ *= require mousetrap
+ *= require_tree .
+ */
+@import "bootstrap-sprockets";
+@import "bootswatch/cyborg/variables";
+@import "bootstrap";
+@import "rails_bootstrap_forms";
+@import 'bootstrap/tooltip';
+@import "bootswatch/cyborg/bootswatch";
+@import 'bootstrap/glyphicons';
