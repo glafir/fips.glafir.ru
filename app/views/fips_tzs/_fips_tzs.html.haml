@@ -5,7 +5,7 @@
     %tr
       %th Tz n
       %th Url string fips
-      %th Noko
+      %th Create Wprd Dpcument
       %th
       %th
       %th
@@ -14,8 +14,8 @@
       %tr
         %td= fips_tz.tz_n
         %td= link_to "Link From FIPS", fips_tz.url_string_fips, target: '_blank', class: "btn btn-primary"
+        %td= link_to 'Export to MSWord', create_docx_fips_tz_path(fips_tz), target: '_blank', class: "btn btn-default"
         %td= link_to 'Show', fips_tz, target: '_blank', class: "btn btn-default"
         %td= link_to 'Noko', "/noko/#{fips_tz.id}", class: "btn btn-default"
         %td= link_to 'Edit', edit_fips_tz_path(fips_tz), class: "btn btn-primary"
-        %td
 = render "paginate_bottom"

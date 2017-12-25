@@ -1,0 +1,11 @@
+%h2
+  Edit user #{@user.username}
+.field-form
+  .field-form-section
+    .round-image-250
+      = image_tag @user.avatar.size_300
+  .field-form-section
+    = render 'form'
+    = link_to 'Show', @user, class: "btn btn-primary"
+    |
+    \#{link_to 'Back', :back, class: "btn btn-default"}

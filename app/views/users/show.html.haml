@@ -1,14 +1,35 @@
-%h3
-  User (#{@user.email})
-%p
-  %b Email:
-  = @user.email
-%p
-  %b Текущий адрес:
-  = @user.current_sign_in_ip
-%p
-  %b Адрес предыдущего захода:
-  = @user.last_sign_in_ip
-%p
-  %b Время предыдущего захода:
-  = @user.last_sign_in_at
+- model_class = User
+%h3.center-block
+  #{t '.title', :default => model_class.model_name.human.titleize} #{@user.username} (#{@user.email})
+.field-form
+  .col-md-6.visible-md-block
+    = image_tag @user.avatar.size_500, :class => 'img-circle'
+  .col-lg-6.visible-lg-block
+    = image_tag @user.avatar.size_600, :class => 'img-circle'
+  .col-sm-6.visible-sm-block
+    = image_tag @user.avatar.size_400, :class => 'img-circle'
+  .col-xs-12.visible-xs-block
+    = image_tag @user.avatar.size_300, :class => 'img-circle'
+  .col-lg-6.col-md-6.col-sm-6.col-xs-12
+    %p
+      %b Имя:
+      = @user.username
+    %p
+      %b Email:
+      = @user.email
+    %p
+      %b Time_zone:
+      = @user.time_zone
+      = ActiveSupport::TimeZone.new(@user.time_zone).formatted_offset
+    %p
+      %b Текущий адрес:
+      = @user.current_sign_in_ip
+    %p
+      %b Адрес предыдущего захода:
+      = @user.last_sign_in_ip
+    %p
+      %b Время предыдущего захода:
+      = @user.last_sign_in_at
+    = link_to "Все пользователи", users_path, class: "btn btn-default"
+    ||
+    = link_to "Редактировать пользователя", edit_user_path(@user), class: "btn btn-primary"

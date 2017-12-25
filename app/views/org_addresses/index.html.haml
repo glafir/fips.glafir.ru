@@ -1,0 +1,26 @@
+- model_class = OrgAddress
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+
+%h1 Listing org_addresses
+
+%table.table.table-striped.table-hover.table-condensed
+  %thead
+    %tr
+      %th Org
+      %th Address
+      %th
+      %th
+      %th
+
+  %tbody
+    - @org_addresses.each do |org_address|
+      %tr
+        %td= org_address.org_id
+        %td= org_address.address
+        %td= link_to 'Show', org_address
+        %td= link_to 'Edit', edit_org_address_path(org_address)
+        %td= link_to 'Destroy', org_address, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+= link_to t('.new', :default => t("helpers.links.new")), new_org_address_path, :class => 'btn btn-primary'
+

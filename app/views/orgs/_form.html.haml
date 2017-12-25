@@ -1,0 +1,28 @@
+= form_for @org,  :html => { :class => 'form form-horizontal' } do |f|
+  - if @org.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@org.errors.count, "error")} prohibited this org from being saved:"
+      %ul
+        - @org.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :shortname, :class => 'control-label'
+    .controls
+      = f.text_field :shortname, class: "form-control", required: true
+  .form-group
+    = f.label :fullname, :class => 'control-label'
+    .controls
+      = f.text_field :fullname, class: "form-control", required: true
+  .form-group
+    = f.label :create, :class => 'control-label'
+    .controls
+      = f.date_select :create, class: "form-control", required: true
+  .form-group
+    = f.label :org_state_id, :class => 'control-label'
+    .controls
+      = f.number_field :org_state_id, class: "form-control", required: true
+  = f.submit nil, :class => 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), orgs_path, :class => 'btn btn-default'
+  = link_to t('.back', :default => t("helpers.links.back")), :back, :class => 'btn btn-default'
+

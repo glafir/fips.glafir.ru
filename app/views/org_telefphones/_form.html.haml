@@ -1,0 +1,20 @@
+= form_for @org_telefphone,  :html => { :class => 'form form-horizontal' } do |f|
+  - if @org_telefphone.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@org_telefphone.errors.count, "error")} prohibited this org_telefphone from being saved:"
+      %ul
+        - @org_telefphone.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :org_id, :class => 'control-label'
+    .controls
+      = f.number_field :org_id, class: "form-control", required: true
+  .form-group
+    = f.label :telephone, :class => 'control-label'
+    .controls
+      = f.text_field :telephone, class: "form-control", required: true
+  = f.submit nil, :class => 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), org_telefphones_path, :class => 'btn btn-default'
+  = link_to t('.back', :default => t("helpers.links.back")), :back, :class => 'btn btn-default'
+

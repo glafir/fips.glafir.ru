@@ -12,11 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui/widgets/datepicker
-//= require jquery-ui/i18n/datepicker-ru
+//= require mousetrap
 //= require bootstrap
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.ru.js
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$.fn.bstooltip = $.fn.tooltip;

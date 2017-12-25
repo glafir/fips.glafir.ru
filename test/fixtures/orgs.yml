@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shortname: MyString
+  fullname: MyString
+  create: 2017-12-25
+  org_state_id: 1
+
+two:
+  shortname: MyString
+  fullname: MyString
+  create: 2017-12-25
+  org_state_id: 1

@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Org:
+  = @org_telefphone.org_id
+%p
+  %b Telephone:
+  = @org_telefphone.telephone
+
+= link_to 'Edit', edit_org_telefphone_path(@org_telefphone)
+\|
+= link_to 'Back', org_telefphones_path

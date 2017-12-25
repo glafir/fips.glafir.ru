@@ -1,0 +1,26 @@
+- model_class = OrgTelefphone
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+
+%h1 Listing org_telefphones
+
+%table.table.table-striped.table-hover.table-condensed
+  %thead
+    %tr
+      %th Org
+      %th Telephone
+      %th
+      %th
+      %th
+
+  %tbody
+    - @org_telefphones.each do |org_telefphone|
+      %tr
+        %td= org_telefphone.org_id
+        %td= org_telefphone.telephone
+        %td= link_to 'Show', org_telefphone
+        %td= link_to 'Edit', edit_org_telefphone_path(org_telefphone)
+        %td= link_to 'Destroy', org_telefphone, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+= link_to t('.new', :default => t("helpers.links.new")), new_org_telefphone_path, :class => 'btn btn-primary'
+

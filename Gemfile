@@ -1,13 +1,19 @@
 source 'https://rubygems.org'
-gem 'rails', '4.2.6'
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
+gem 'rails', '5.0.2'
+gem 'puma', '3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
-gem 'turbolinks'
+gem 'coffee-rails', '~> 4.2'
+gem 'turbolinks', '~> 5'
 gem 'turbolinks-redirect'
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 2.5'
 
-gem 'protected_attributes'
+#gem 'protected_attributes'
 
 #gem 'activerecord-session_store'
 gem 'jquery-rails'
@@ -20,6 +26,7 @@ gem "momentjs-rails"
 gem 'rails-jquery-autocomplete'
 gem 'mysql2'
 gem 'bcrypt-ruby'
+gem 'bcrypt'
 gem 'devise'
 gem 'devise-encryptable'
 gem 'warden'
@@ -44,10 +51,10 @@ gem 'kaminari'
 gem 'geo_units'
 gem 'geo_point'
 gem 'geo_calc'
-gem 'netzke'
+#gem 'netzke'
 gem 'compass'
-gem 'netzke-communitypack'
-gem "mobile-fu"
+#gem 'netzke-communitypack'
+#gem "mobile-fu"
 gem 'responders'
 gem 'rails4_client_side_validations'
 gem 'i18n-timezones'
@@ -57,16 +64,15 @@ gem 'jquery-ui-themes'
 gem 'html5_validators'
 gem 'pundit'
 gem 'dalli'
-group :development do
-  gem 'better_errors'
-  gem 'quiet_assets'
-  gem 'rails_layout'
-  gem 'spring-commands-rspec'
-  gem "binding_of_caller"
-end
+#group :development do
+#  gem 'better_errors'
+#  gem 'quiet_assets'
+#  gem 'rails_layout'
+#  gem 'spring-commands-rspec'
+#  gem "binding_of_caller"
+#end
 
 gem 'gritter_notices'
-gem 'activerecord-session_store'
 
 gem 'rails-erd'
 gem 'rack-cors', :require => 'rack/cors'
@@ -88,3 +94,8 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git
 
 gem 'get_process_mem'
 gem 'benchmark-ips'
+gem 'carrierwave'
+gem 'mini_magick'
+#gem 'docx', '~> 0.2.07', :require => ["docx"]
+gem 'sablon'
+gem 'htmltoword'

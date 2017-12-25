@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Date start:
+  = @tz_request.date_start
+%p
+  %b Doc:
+  = @tz_request.doc
+%p
+  %b Org:
+  = @tz_request.org_id
+%p
+  %b Img:
+  = @tz_request.img
+
+= link_to 'Edit', edit_tz_request_path(@tz_request)
+\|
+= link_to 'Back', tz_requests_path

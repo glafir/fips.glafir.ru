@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 #  after_action :verify_authorized
   def index
     @users = User.all
@@ -15,13 +15,10 @@ class UsersController < ApplicationController
  #   authorize @user
   end
 
-  # GET /specialists/1/edit
   def edit
  #   authorize @user
   end
 
-  # POST /specialists
-  # POST /specialists.json
   def create
     @user = User.new(user_params)
  #   authorize @user
@@ -39,7 +36,8 @@ class UsersController < ApplicationController
   def update
 #    authorize @user
     if @user.update_attributes(user_params)
-      redirect_to users_path, :notice => "User updated."
+      bypass_sign_in(@user)
+      redirect_to users_path, :notice => "User updated!"
     else
       redirect_to users_path, :alert => "Unable to update user."
     end
@@ -61,6 +59,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:login, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :created_at, :updated_at)
+      params.require(:user).permit(:avatar, :username, :password, :password_confirmation, :time_zone, :login, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :created_at, :updated_at, :email)
     end
 end

@@ -1,0 +1,30 @@
+- model_class = TzRequest
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+
+%h1 Listing tz_requests
+
+%table.table.table-striped.table-hover.table-condensed
+  %thead
+    %tr
+      %th Date start
+      %th Doc
+      %th Org
+      %th Img
+      %th
+      %th
+      %th
+
+  %tbody
+    - @tz_requests.each do |tz_request|
+      %tr
+        %td= tz_request.date_start
+        %td= tz_request.doc
+        %td= tz_request.org_id
+        %td= tz_request.img
+        %td= link_to 'Show', tz_request
+        %td= link_to 'Edit', edit_tz_request_path(tz_request)
+        %td= link_to 'Destroy', tz_request, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+= link_to t('.new', :default => t("helpers.links.new")), new_tz_request_path, :class => 'btn btn-primary'
+

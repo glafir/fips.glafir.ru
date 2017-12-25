@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Shortname:
+  = @org.shortname
+%p
+  %b Fullname:
+  = @org.fullname
+%p
+  %b Create:
+  = @org.create
+%p
+  %b Org state:
+  = @org.org_state_id
+
+= link_to 'Edit', edit_org_path(@org)
+\|
+= link_to 'Back', orgs_path

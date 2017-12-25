@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_start: 2017-04-19
+  doc: MyString
+  org_id: 1
+  img: MyString
+
+two:
+  date_start: 2017-04-19
+  doc: MyString
+  org_id: 1
+  img: MyString

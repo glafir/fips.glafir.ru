@@ -1,0 +1,28 @@
+= form_for @tz_request,  :html => { :class => 'form form-horizontal' } do |f|
+  - if @tz_request.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@tz_request.errors.count, "error")} prohibited this tz_request from being saved:"
+      %ul
+        - @tz_request.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :date_start, :class => 'control-label'
+    .controls
+      = f.date_select :date_start, class: "form-control", required: true
+  .form-group
+    = f.label :doc, :class => 'control-label'
+    .controls
+      = f.text_field :doc, class: "form-control", required: true
+  .form-group
+    = f.label :org_id, :class => 'control-label'
+    .controls
+      = f.number_field :org_id, class: "form-control", required: true
+  .form-group
+    = f.label :img, :class => 'control-label'
+    .controls
+      = f.text_field :img, class: "form-control", required: true
+  = f.submit nil, :class => 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), tz_requests_path, :class => 'btn btn-default'
+  = link_to t('.back', :default => t("helpers.links.back")), :back, :class => 'btn btn-default'
+

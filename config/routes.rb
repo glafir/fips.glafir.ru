@@ -1,19 +1,38 @@
 Fips::Application.routes.draw do
-  netzke
+  resources :orgs do
+    resources :org_addresses
+    resources :org_telefphones
+    resources :tz_requests do
+      resources :fips_tzs do
+        member do
+          get "create_docx" => "fips_tzs#create_docx", format: 'docx'
+        end
+      end
+    end
+  end
+#  netzke
   devise_for :users, :controllers => {
-    :sessions => 'users/sessions',
+    :sessions => "users/sessions",
     :registrations => "users/registrations"
   }
-
   devise_scope :user do
-    root :to => "fips_tzs#index"
     get "sign_in", :to => "users/sessions#new"
     get "users/sign_out", :to => "users/sessions#destroy"
     delete "users/sign_out", :to => "users/sessions#destroy"
+    root "users/sessions#new"
   end
+
+  scope "/admin" do
+    resources :users
+  end
+
+
   resources :proxies
-  resources :users
-  resources :fips_tzs
+  resources :fips_tzs do
+    member do
+      get "create_docx" => "fips_tzs#create_docx", format: 'docx'
+    end
+  end
   get "/noko/:id" => "fips_tzs#noko", as: :fips_noko
   get "/update_all" => "fips_tzs#update_all"
   get "/fips/:id" => "fips_tzs#fips_show"

@@ -1,6 +1,8 @@
 %p#notice= notice
 %iframe{:height => "700", :src => "/fips/#{@fips_tz.id}", :width => "700"}
-%hr/
+%hr
+= raw Nokogiri::HTML::Document.parse(@fips_tz.doc).css('a')[1]
+%hr
 = link_to 'Edit', edit_fips_tz_path(@fips_tz)
 || #{link_to 'fipsURL', @fips_tz.url_string_fips}
 \#{link_to 'Back', fips_tzs_path}

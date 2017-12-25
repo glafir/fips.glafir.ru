@@ -1,5 +1,5 @@
 #!/bin/sh
-
+ulimit -s 16384
 cd /home/glafir/RoR/fips.glafir.ru/
 #unicorn -c /home/glafir/RoR/ic-glafir/unicorn.rb -E production -D
 unicorn -c /home/glafir/RoR/fips.glafir.ru/unicorn.rb -D

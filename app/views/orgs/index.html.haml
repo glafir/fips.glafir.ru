@@ -1,0 +1,30 @@
+- model_class = Org
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+
+%h1 Listing orgs
+
+%table.table.table-striped.table-hover.table-condensed
+  %thead
+    %tr
+      %th Shortname
+      %th Fullname
+      %th Create
+      %th Org state
+      %th
+      %th
+      %th
+
+  %tbody
+    - @orgs.each do |org|
+      %tr
+        %td= org.shortname
+        %td= org.fullname
+        %td= org.create
+        %td= org.org_state_id
+        %td= link_to 'Show', org
+        %td= link_to 'Edit', edit_org_path(org)
+        %td= link_to 'Destroy', org, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+= link_to t('.new', :default => t("helpers.links.new")), new_org_path, :class => 'btn btn-primary'
+

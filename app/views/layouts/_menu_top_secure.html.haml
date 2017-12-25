@@ -5,6 +5,7 @@
       - if user_signed_in?
         = navbar_dropdown "Товарные знаки:" do
           = navbar_item "Все товарники:", fips_tzs_path
+          = navbar_item "Организации и компании:", orgs_path
     = navbar_group align: 'right', class: 'right-userpanel', id: 'menu' do
       - if user_signed_in?
         = navbar_dropdown "твой профиль: #{current_user.username}" do

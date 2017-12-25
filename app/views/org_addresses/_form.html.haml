@@ -1,0 +1,20 @@
+= form_for @org_address,  :html => { :class => 'form form-horizontal' } do |f|
+  - if @org_address.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@org_address.errors.count, "error")} prohibited this org_address from being saved:"
+      %ul
+        - @org_address.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :org_id, :class => 'control-label'
+    .controls
+      = f.number_field :org_id, class: "form-control", required: true
+  .form-group
+    = f.label :address, :class => 'control-label'
+    .controls
+      = f.text_field :address, class: "form-control", required: true
+  = f.submit nil, :class => 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), org_addresses_path, :class => 'btn btn-default'
+  = link_to t('.back', :default => t("helpers.links.back")), :back, :class => 'btn btn-default'
+

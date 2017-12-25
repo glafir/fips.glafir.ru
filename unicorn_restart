@@ -1,4 +1,5 @@
 #!/bin/sh
+ulimit -s 16384
 unicorn_pid=`cat /home/glafir/RoR/fips.glafir.ru/tmp/pids/unicorn.pid`
 echo "Restarting Unicorn ($unicorn_pid)"
 kill -9 $unicorn_pid

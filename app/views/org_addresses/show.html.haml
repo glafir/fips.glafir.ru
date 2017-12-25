@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Org:
+  = @org_address.org_id
+%p
+  %b Address:
+  = @org_address.address
+
+= link_to 'Edit', edit_org_address_path(@org_address)
+\|
+= link_to 'Back', org_addresses_path

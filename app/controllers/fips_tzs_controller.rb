@@ -1,10 +1,7 @@
 class FipsTzsController < ApplicationController
-  before_action :set_fips_tz, only: [ :show, :noko, :edit, :update, :destroy, :fips_show, :update_tz]
+  before_action :set_fips_tz, only: [ :show, :create_docx, :noko, :edit, :update, :destroy, :fips_show, :update_tz]
   layout "fips_app", :only => [ :fips_show]
-#  protect_from_forgery except: :fips_adm
-#  skip_before_action :fips_adm
-  # GET /fips_tzs
-  # GET /fips_tzs.json
+
   def index
     @fips_tzs = FipsTz.where(country: "RU")
 #    @fips_tzs = @fips_tzs.search(params[:search]) unless params[:search].blank?
@@ -53,12 +50,21 @@ class FipsTzsController < ApplicationController
     }
   end
 
-  # GET /fips_tzs/1
-  # GET /fips_tzs/1.json
   def show
   end
 
   def fips_show
+  end
+
+  def create_docx
+  @thumb = Nokogiri::HTML::Document.parse(@fips_tz.doc).css('img')[1]
+#  respond_to do |format|
+#    format.docx do
+#      render docx: 'create_docx'#, filename: 'create_docx.docx'
+      # Alternatively, if you don't want to create the .docx.erb template you could
+#      render docx: 'create_docx.docx', content: '<html><body>some html</body></html>'
+#    end
+#  end
   end
 
   def noko
@@ -72,7 +78,6 @@ class FipsTzsController < ApplicationController
     @fips_tz.save
   end
 
-  # GET /fips_tzs/new
   def new
     @fips_tz = FipsTz.new
   end
@@ -90,12 +95,9 @@ class FipsTzsController < ApplicationController
     end
   end
 
-  # GET /fips_tzs/1/edit
   def edit
   end
 
-  # POST /fips_tzs
-  # POST /fips_tzs.json
   def create
     @fips_tz = FipsTz.new(fips_tz_params)
     respond_to do |format|
@@ -109,8 +111,6 @@ class FipsTzsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /fips_tzs/1
-  # PATCH/PUT /fips_tzs/1.json
   def update
     respond_to do |format|
       if @fips_tz.update(fips_tz_params)
@@ -123,8 +123,6 @@ class FipsTzsController < ApplicationController
     end
   end
 
-  # DELETE /fips_tzs/1
-  # DELETE /fips_tzs/1.json
   def destroy
     @fips_tz.destroy
     respond_to do |format|
